@@ -207,13 +207,16 @@
 
   /* subgroup labels (e.g. brand groups inside a spirit section) */
   .subgroup{
-    margin-top: 6px;
+    margin-top: 14px;
     margin-bottom: 2px;
     font-size: 12.5px;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--aegean);
     font-weight: 600;
+  }
+  .subgroup:first-child{
+    margin-top: 6px;
   }
 
   .note-badge{
@@ -367,7 +370,7 @@
     <div class="section-head"><span class="num">05</span><h2>Makarnalar</h2><span class="en">Pastas</span></div>
     <div class="divider"></div>
     <div class="items">
-      <div class="item"><div class="item-main"><div class="item-name">Spagetti Bolonez <span class="en">/ Spaghetti Bolognese</span></div><div class="item-desc">Domatesli kıyma sos ve parmesan peyniri ile servis edilir.</div></div><div class="item-price">480₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Spagetti Bolonez <span class="en">/ Spaghetti Bolognese</span></div><div class="item-desc">Domatesli kıyma sos and parmesan peyniri ile servis edilir.</div></div><div class="item-price">480₺</div></div>
       <div class="item"><div class="item-main"><div class="item-name">Penne Arrabiatta <span class="en">/ Penne Arabiata</span></div><div class="item-desc">Acı domates sosu, parmesan peyniri ve sarımsak ile servis edilir.</div></div><div class="item-price">450₺</div></div>
       <div class="item"><div class="item-main"><div class="item-name">Pesto Tagliatelle <span class="en">/ Tagliatelle al Pesto</span></div><div class="item-desc">Pesto sos, tagliatelle makarna, fesleğen ve zeytinyağı ile servis edilir.</div></div><div class="item-price">450₺</div></div>
       <div class="item"><div class="item-main"><div class="item-name">Kremalı Mantarlı Penne <span class="en">/ Creamy Mushroom Penne</span></div><div class="item-desc">Krema, parmesan peyniri ve mantar ile servis edilir.</div></div><div class="item-price">500₺</div></div>
@@ -425,10 +428,17 @@
     <div class="section-head"><span class="num">08</span><h2>Votka</h2><span class="en">Vodka</span></div>
     <div class="divider"></div>
     <div class="items">
-      <div class="item"><div class="item-main"><div class="item-name">Kadeh Votka <span class="en">/ A Glass of Vodka</span></div><div class="item-desc">Absolut</div></div><div class="item-price">550₺</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Kadeh Votka <span class="en">/ A Glass of Vodka</span></div><div class="item-desc">Smirnoff</div></div><div class="item-price">490₺</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Kadeh Votka <span class="en">/ A Glass of Vodka</span></div><div class="item-desc">Finlandia</div></div><div class="item-price">520₺</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Kadeh Votka <span class="en">/ A Glass of Vodka</span></div><div class="item-desc">Russian Standard</div></div><div class="item-price">520₺</div></div>
+      <div class="subgroup">Absolut</div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Votka <span class="en">/ A Glass of Vodka</span></div></div><div class="item-price">550₺</div></div>
+
+      <div class="subgroup">Smirnoff</div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Votka <span class="en">/ A Glass of Vodka</span></div></div><div class="item-price">490₺</div></div>
+
+      <div class="subgroup">Finlandia</div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Votka <span class="en">/ A Glass of Vodka</span></div></div><div class="item-price">520₺</div></div>
+
+      <div class="subgroup">Russian Standard</div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Votka <span class="en">/ A Glass of Vodka</span></div></div><div class="item-price">520₺</div></div>
     </div>
   </section>
 
@@ -437,10 +447,17 @@
     <div class="section-head"><span class="num">09</span><h2>Gin</h2><span class="en">Gin</span></div>
     <div class="divider"></div>
     <div class="items">
-      <div class="item"><div class="item-main"><div class="item-name">Kadeh Gin <span class="en">/ A Glass of Gin</span></div><div class="item-desc">Gordon's Gin</div></div><div class="item-price">520₺</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Kadeh Gin <span class="en">/ A Glass of Gin</span></div><div class="item-desc">Beefeater Gin</div></div><div class="item-price">550₺</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Kadeh Gin <span class="en">/ A Glass of Gin</span></div><div class="item-desc">Hendricks Gin</div></div><div class="item-price">690₺</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Kadeh Gin <span class="en">/ A Glass of Gin</span></div><div class="item-desc">Tanqueray Gin</div></div><div class="item-price">590₺</div></div>
+      <div class="subgroup">Gordon's</div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Gin <span class="en">/ A Glass of Gin</span></div></div><div class="item-price">520₺</div></div>
+
+      <div class="subgroup">Beefeater</div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Gin <span class="en">/ A Glass of Gin</span></div></div><div class="item-price">550₺</div></div>
+
+      <div class="subgroup">Hendricks</div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Gin <span class="en">/ A Glass of Gin</span></div></div><div class="item-price">690₺</div></div>
+
+      <div class="subgroup">Tanqueray</div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Gin <span class="en">/ A Glass of Gin</span></div></div><div class="item-price">590₺</div></div>
     </div>
   </section>
 
@@ -449,11 +466,20 @@
     <div class="section-head"><span class="num">10</span><h2>Viskiler</h2><span class="en">Whiskies</span></div>
     <div class="divider"></div>
     <div class="items">
-      <div class="item"><div class="item-main"><div class="item-name">Kadeh Viski <span class="en">/ A Glass of Whisky</span></div><div class="item-desc">Jack Daniel's</div></div><div class="item-price">590₺</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Kadeh Viski <span class="en">/ A Glass of Whisky</span></div><div class="item-desc">Chivas Regal</div></div><div class="item-price">620₺</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Kadeh Viski <span class="en">/ A Glass of Whisky</span></div><div class="item-desc">Black Label</div></div><div class="item-price">650₺</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Kadeh Viski <span class="en">/ A Glass of Whisky</span></div><div class="item-desc">Ballantine's</div></div><div class="item-price">550₺</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Kadeh Viski <span class="en">/ A Glass of Whisky</span></div><div class="item-desc">Aberlour</div></div><div class="item-price">790₺</div></div>
+      <div class="subgroup">Jack Daniel's</div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Viski <span class="en">/ A Glass of Whisky</span></div></div><div class="item-price">590₺</div></div>
+
+      <div class="subgroup">Chivas Regal</div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Viski <span class="en">/ A Glass of Whisky</span></div></div><div class="item-price">620₺</div></div>
+
+      <div class="subgroup">Black Label</div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Viski <span class="en">/ A Glass of Whisky</span></div></div><div class="item-price">650₺</div></div>
+
+      <div class="subgroup">Ballantine's</div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Viski <span class="en">/ A Glass of Whisky</span></div></div><div class="item-price">550₺</div></div>
+
+      <div class="subgroup">Aberlour</div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Viski <span class="en">/ A Glass of Whisky</span></div></div><div class="item-price">790₺</div></div>
     </div>
   </section>
 
