@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Şuh Bitez Restaurant | Menü</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #2A2826;
+    --aegean: #5C4A2E;
+    --sky: #F6F0E2;
+    --sky-2: #FBF7EE;
+    --paper: #FAF5E9;
+    --sand: #9C7A45;
+    --sand-light: #DDCFAE;
+    --line: rgba(42,40,38,0.14);
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    font-family: 'Jost', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3{ font-family: 'Fraunces', serif; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    background: linear-gradient(180deg, #201E1B 0%, #2E2B27 65%, #423E37 100%);
+    color: #fff;
+    padding: 64px 24px 90px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,0.06) 0, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(255,255,255,0.05) 0, transparent 45%);
+    pointer-events:none;
+  }
+  .hero-mark{
+    width: 64px; height:64px;
+    margin: 0 auto 22px;
+    border: 1.5px solid rgba(255,255,255,0.55);
+    border-radius: 50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+  }
+  .hero .eyebrow{
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 14px;
+    padding-right: 4px;
+  }
+  .hero h1{
+    font-size: clamp(48px, 11vw, 84px);
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 1;
+    padding-right: 1px;
+  }
+  .hero .sub{
+    margin-top: 14px;
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.82);
+    font-weight: 400;
+    padding-right: 3px;
+  }
+  .hero .place{
+    margin-top: 6px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* Aegean arch wave divider */
+  .arches{
+    position: absolute;
+    bottom: -1px; left:0; right:0;
+    height: 46px;
+    display:flex;
+  }
+  .arches svg{ display:block; width:100%; height:100%; }
+
+  /* ---------- STICKY NAV ---------- */
+  .catnav-wrap{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(250,245,233,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .catnav{
+    display:flex; gap:6px;
+    overflow-x:auto;
+    padding: 12px 16px;
+    scrollbar-width: none;
+  }
+  .catnav::-webkit-scrollbar{ display:none; }
+  .catnav a{
+    flex: 0 0 auto;
+    text-decoration:none;
+    color: var(--ink);
+    font-size: 12.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    border-radius: 30px;
+    white-space: nowrap;
+    transition: all .2s ease;
+  }
+  .catnav a.active, .catnav a:hover{
+    background: var(--aegean);
+    color:#fff;
+    border-color: var(--aegean);
+  }
+
+  /* ---------- SECTIONS ---------- */
+  .section{
+    padding: 52px 20px 20px;
+    max-width: 760px;
+    margin: 0 auto;
+    scroll-margin-top: 64px;
+  }
+  .section:nth-of-type(even){ background: var(--sky-2); }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  .section-head .num{
+    font-family:'Fraunces', serif;
+    font-size: 13px;
+    color: var(--sand);
+    letter-spacing: 2px;
+  }
+  .section-head h2{
+    font-size: clamp(24px, 5vw, 30px);
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.3px;
+  }
+  .section-head .en{
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--aegean);
+    font-weight: 500;
+  }
+  .divider{
+    width: 100%;
+    height: 10px;
+    margin: 6px 0 28px;
+    background-image: repeating-linear-gradient(90deg,
+      transparent 0, transparent 6px,
+      var(--sand-light) 6px, var(--sand-light) 7px,
+      transparent 7px, transparent 16px);
+  }
+
+  .items{ display:flex; flex-direction:column; }
+  .item{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .item:last-child{ border-bottom:none; }
+  .item-main{ flex:1; min-width:0; }
+  .item-name{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .item-name .en{
+    font-weight: 400;
+    color: #8A7D68;
+    font-size: 13.5px;
+  }
+  .item-desc{
+    font-size: 13px;
+    color: #75726A;
+    margin-top: 3px;
+    line-height: 1.45;
+  }
+  .item-price{
+    font-family:'Fraunces', serif;
+    font-size: 15px;
+    color: var(--sand);
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  /* subgroup labels (e.g. brand groups inside a spirit section) */
+  .subgroup{
+    margin-top: 6px;
+    margin-bottom: 2px;
+    font-size: 12.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--aegean);
+    font-weight: 600;
+  }
+
+  .note-badge{
+    display:inline-block;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: #8a6b3d;
+    background: #FBF1E1;
+    border: 1px solid #EBD9B8;
+    padding: 2px 9px;
+    border-radius: 20px;
+    margin-top: 4px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    text-align:center;
+    padding: 50px 20px 60px;
+    background: var(--ink);
+    color: rgba(255,255,255,0.75);
+  }
+  footer .fmark{
+    font-family:'Fraunces', serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  footer p{
+    font-size: 12.5px;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.5);
+  }
+  footer .waves{
+    margin-top: 18px;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 480px){
+    .section{ padding: 40px 16px 8px; }
+    .item-price{ font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">Bodrum &middot; Bitez</div>
+    <h1>ŞUH BİTEZ</h1>
+    <div class="sub">Restaurant</div>
+    <div class="place">Ege'nin tadı, denizin kıyısında</div>
+    <div class="arches">
+      <svg viewBox="0 0 600 40" preserveAspectRatio="none">
+        <path d="M0,40 L0,20 Q15,0 30,20 Q45,0 60,20 Q75,0 90,20 Q105,0 120,20 Q135,0 150,20 Q165,0 180,20 Q195,0 210,20 Q225,0 240,20 Q255,0 270,20 Q285,0 300,20 Q315,0 330,20 Q345,0 360,20 Q375,0 390,20 Q405,0 420,20 Q435,0 450,20 Q465,0 480,20 Q495,0 510,20 Q525,0 540,20 Q555,0 570,20 Q585,0 600,20 L600,40 Z" fill="#FAF5E9"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- STICKY CATEGORY NAV -->
+  <div class="catnav-wrap">
+    <nav class="catnav" id="catnav">
+      <a href="#kahvalti">Kahvaltı</a>
+      <a href="#aperatifler">Aperatifler</a>
+      <a href="#burgerler">Burgerler</a>
+      <a href="#ana-yemekler">Ana Yemekler</a>
+      <a href="#makarnalar">Makarnalar</a>
+      <a href="#salatalar">Salatalar</a>
+      <a href="#rakilar">Rakılar</a>
+      <a href="#votka">Votka</a>
+      <a href="#gin">Gin</a>
+      <a href="#viskiler">Viskiler</a>
+      <a href="#kokteyller">Kokteyller</a>
+      <a href="#saraplar">Şaraplar</a>
+      <a href="#biralar">Biralar</a>
+      <a href="#icecekler">İçecekler</a>
+    </nav>
+  </div>
+
+  <!-- KAHVALTI -->
+  <section class="section" id="kahvalti">
+    <div class="section-head">
+      <span class="num">01</span>
+      <h2>Kahvaltı</h2>
+      <span class="en">Breakfast</span>
+    </div>
+    <div class="divider"></div>
+    <div class="items">
+      <div class="item">
+        <div class="item-main">
+          <div class="item-name">Serpme Kahvaltı <span class="en">/ Breakfast Platter</span></div>
+          <div class="item-desc">2 kişilik — peynir tabağı (kaşar, beyaz, salatalık), zeytin çeşitleri, yeşil izgara zeytin, ev yapımı reçeller (çilek, vişne, kumkat, bal, tereyağı), sahanda yumurta, tahin pekmez, çikolata kreması, haşlanmış yumurta, sahanda yumurta, patates kızartması, sigara böreği, sosis, simit, ekmek, sınırsız demleme çay.</div>
+        </div>
+        <div class="item-price">1.200₺</div>
+      </div>
+      <div class="item"><div class="item-main"><div class="item-name">Menemen <span class="en">/ Turkish Menemen</span></div><div class="item-desc">Domates, biber ve yumurta ile servis edilir.</div></div><div class="item-price">300₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Sucuklu Yumurta <span class="en">/ Sausage and Eggs</span></div><div class="item-desc">Yumurta ve dilim sucuk ile hazırlanır.</div></div><div class="item-price">350₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Kavurmalı Yumurta <span class="en">/ Eggs with Braised Beef</span></div><div class="item-desc">Kavurma eti ve yumurta ile hazırlanır.</div></div><div class="item-price">450₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Çökelekli Yumurta <span class="en">/ Eggs with Curd Cheese</span></div><div class="item-desc">Çökelek peyniri ve yumurta ile hazırlanır.</div></div><div class="item-price">250₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Sahanda Yumurta <span class="en">/ Fried Eggs</span></div><div class="item-desc">Tereyağında pişirilmiş yumurta.</div></div><div class="item-price">200₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Omlet <span class="en">/ Omelette</span></div><div class="item-desc">Yumurta ile hazırlanmış klasik omlet.</div></div><div class="item-price">200₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Sucuk <span class="en">/ Spicy Turkish Beef Sausage</span></div><div class="item-desc">Izgara sucuk dilimleri.</div></div><div class="item-price">400₺</div></div>
+    </div>
+  </section>
+
+  <!-- APERATIFLER -->
+  <section class="section" id="aperatifler">
+    <div class="section-head"><span class="num">02</span><h2>Aperatifler</h2><span class="en">Appetizers</span></div>
+    <div class="divider"></div>
+    <div class="items">
+      <div class="item"><div class="item-main"><div class="item-name">Patates Tabağı <span class="en">/ French Fries Platter</span></div><div class="item-desc">Patates kızartması ile servis edilir.</div></div><div class="item-price">300₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Bira Tabağı <span class="en">/ Mixed Snack Platter</span></div><div class="item-desc">Patates kızartması, sigara böreği ve sosis ile servis edilir.</div></div><div class="item-price">380₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">İçli Köfte (4 Adet) <span class="en">/ Kibbeh (4 pcs)</span></div><div class="item-desc">Tereyağı ve yoğurt ile servis edilir.</div></div><div class="item-price">490₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Sigara Böreği <span class="en">/ Crispy Cheese Rolls</span></div><div class="item-desc">Çıtır yufka arasında peynir ile servis edilir.</div></div><div class="item-price">350₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Mantar Kavurması <span class="en">/ Sautéed Mushrooms</span></div><div class="item-desc">Soğan, biber ve geleneksel baharatlarla sote edilmiş taze mantarlar.</div></div><div class="item-price">450₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Meyve Tabağı <span class="en">/ Fruit Platter</span></div></div><div class="item-price">300₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Çerez <span class="en">/ Mixed Nuts</span></div></div><div class="item-price">150₺</div></div>
+    </div>
+  </section>
+
+  <!-- BURGERLER -->
+  <section class="section" id="burgerler">
+    <div class="section-head"><span class="num">03</span><h2>Hamburgerler</h2><span class="en">Burgers</span></div>
+    <div class="divider"></div>
+    <div class="items">
+      <div class="item"><div class="item-main"><div class="item-name">Hamburger <span class="en">/ Burger</span></div><div class="item-desc">Burger köftesi, burger sosu, turşu, yeşillik ve patates ile servis edilir.</div></div><div class="item-price">550₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Cheeseburger</div><div class="item-desc">Burger köftesi, burger sosu, cheddar peyniri, turşu, yeşillik ve patates ile servis edilir.</div></div><div class="item-price">580₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Şuh Burger</div><div class="item-desc">160 gr burger köftesi, burger sosu, cheddar peyniri, karamelize soğan, turşu, yeşillik ve soğan halkası ile servis edilir.</div></div><div class="item-price">600₺</div></div>
+    </div>
+  </section>
+
+  <!-- ANA YEMEKLER -->
+  <section class="section" id="ana-yemekler">
+    <div class="section-head"><span class="num">04</span><h2>Ana Yemekler</h2><span class="en">Main Courses</span></div>
+    <div class="divider"></div>
+    <div class="items">
+      <div class="item"><div class="item-main"><div class="item-name">Şuh Spesyal <span class="en">/ Şuh Specials</span></div><div class="item-desc">2 adet köfte, 2 adet çöp şiş, tereyağı ve ızgara domates, biber ile servis edilir.</div></div><div class="item-price">1.200₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Kuzu Pirzola <span class="en">/ Lamb Chop</span></div><div class="item-desc">Tereyağı ve ızgara domates, biber ile servis edilir.</div></div><div class="item-price">1.100₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Bonfile <span class="en">/ Beef Tenderloin</span></div><div class="item-desc">Tereyağı ve yoğurt ile servis edilir.</div></div><div class="item-price">1.250₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Külbastı <span class="en">/ Lamb "Külbastı"</span></div><div class="item-desc">İnce dilimlenmiş marine kuzu medalyonları. Izgara domates, biber ile servis edilir.</div></div><div class="item-price">850₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Beyti <span class="en">/ Beyti</span></div><div class="item-desc">Çıtır yufka/lavaş içine sarılmış közde ızgara kıyma, yoğurt içeren sıcak domates sosu ve kızarmış tereyağı ile servis edilir.</div></div><div class="item-price">850₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Izgara Köfte <span class="en">/ Grilled Meatballs</span></div><div class="item-desc">Köfte, közlenmiş domates, biber ve patates kızartması ile servis edilir.</div></div><div class="item-price">580₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Izgara Tavuk <span class="en">/ Grilled Chicken</span></div><div class="item-desc">Tavuk, közlenmiş domates, biber ve patates kızartması ile servis edilir.</div></div><div class="item-price">480₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Köri Soslu Tavuk <span class="en">/ Chicken Curry</span></div><div class="item-desc">Köri sosunda pişirilmiş tavuk göğsü, patates kızartması ile servis edilir.</div></div><div class="item-price">500₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Mantı <span class="en">/ Turkish Mantı</span></div><div class="item-desc">El açması mantı, nane ve sarımsaklı yoğurt ile servis edilir.</div></div><div class="item-price">480₺</div></div>
+    </div>
+  </section>
+
+  <!-- MAKARNALAR -->
+  <section class="section" id="makarnalar">
+    <div class="section-head"><span class="num">05</span><h2>Makarnalar</h2><span class="en">Pastas</span></div>
+    <div class="divider"></div>
+    <div class="items">
+      <div class="item"><div class="item-main"><div class="item-name">Spagetti Bolonez <span class="en">/ Spaghetti Bolognese</span></div><div class="item-desc">Domatesli kıyma sos ve parmesan peyniri ile servis edilir.</div></div><div class="item-price">480₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Penne Arrabiatta <span class="en">/ Penne Arabiata</span></div><div class="item-desc">Acı domates sosu, parmesan peyniri ve sarımsak ile servis edilir.</div></div><div class="item-price">450₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Pesto Tagliatelle <span class="en">/ Tagliatelle al Pesto</span></div><div class="item-desc">Pesto sos, tagliatelle makarna, fesleğen ve zeytinyağı ile servis edilir.</div></div><div class="item-price">450₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Kremalı Mantarlı Penne <span class="en">/ Creamy Mushroom Penne</span></div><div class="item-desc">Krema, parmesan peyniri ve mantar ile servis edilir.</div></div><div class="item-price">500₺</div></div>
+    </div>
+  </section>
+
+  <!-- SALATALAR -->
+  <section class="section" id="salatalar">
+    <div class="section-head"><span class="num">06</span><h2>Salatalar</h2><span class="en">Salads</span></div>
+    <div class="divider"></div>
+    <div class="items">
+      <div class="item"><div class="item-main"><div class="item-name">Çoban Salatası <span class="en">/ Turkish Çoban Salad</span></div><div class="item-desc">Domates, salatalık, biber, soğan ve maydanoz ile servis edilir.</div></div><div class="item-price">350₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Gavurdağı Salatası <span class="en">/ Turkish Gavurdağı Salad</span></div><div class="item-desc">Ceviz ve nar ekşisi ile servis edilir.</div></div><div class="item-price">450₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Mevsim Salatası <span class="en">/ Turkish Harvest Salad</span></div><div class="item-desc">Mevsimin en taze yeşillikleri ile servis edilir.</div></div><div class="item-price">280₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Roka Salatası <span class="en">/ Arugula Salad</span></div><div class="item-desc">Roka, domates, beyaz peynir, zeytinyağı, limon ve nar ekşisi ile servis edilir.</div></div><div class="item-price">320₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Ton Balıklı Salata <span class="en">/ Tuna Salad</span></div><div class="item-desc">Taze Akdeniz yeşillikleri, ton balığı ve özel soslar ile servis edilir.</div></div><div class="item-price">520₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Peynir Salatası <span class="en">/ Cheese Salad</span></div><div class="item-desc">Beyaz peynir, domates, salatalık, biber, yeşillik ve zeytinyağı ile servis edilir.</div></div><div class="item-price">350₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Tavuklu Salata <span class="en">/ Grilled Chicken Salad</span></div><div class="item-desc">Izgara tavuk göğsü ve yeşillikler ile servis edilir.</div></div><div class="item-price">400₺</div></div>
+    </div>
+  </section>
+
+  <!-- RAKILAR -->
+  <section class="section" id="rakilar">
+    <div class="section-head"><span class="num">07</span><h2>Rakılar</h2><span class="en">Traditional Turkish Raki</span></div>
+    <div class="divider"></div>
+    <div class="items">
+      <div class="subgroup">Yeni Rakı</div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Rakı <span class="en">/ A Glass of Raki</span></div></div><div class="item-price">350₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">35 Cl Rakı <span class="en">/ 35 cl Raki (Bottle)</span></div></div><div class="item-price">1.500₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">50 Cl Rakı <span class="en">/ 50 cl Raki (Bottle)</span></div></div><div class="item-price">1.800₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">70 Cl Rakı <span class="en">/ 70 cl Raki (Bottle)</span></div></div><div class="item-price">2.300₺</div></div>
+
+      <div class="subgroup">Yeni Rakı / Yeni Seri</div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Rakı <span class="en">/ A Glass of Raki</span></div></div><div class="item-price">350₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">35 Cl Rakı <span class="en">/ 35 cl Raki (Bottle)</span></div></div><div class="item-price">1.500₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">50 Cl Rakı <span class="en">/ 50 cl Raki (Bottle)</span></div></div><div class="item-price">1.800₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">70 Cl Rakı <span class="en">/ 70 cl Raki (Bottle)</span></div></div><div class="item-price">2.300₺</div></div>
+
+      <div class="subgroup">Tekirdağ Gold</div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Rakı <span class="en">/ A Glass of Raki</span></div></div><div class="item-price">400₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">35 Cl Rakı <span class="en">/ 35 cl Raki (Bottle)</span></div></div><div class="item-price">1.600₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">50 Cl Rakı <span class="en">/ 50 cl Raki (Bottle)</span></div></div><div class="item-price">1.900₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">70 Cl Rakı <span class="en">/ 70 cl Raki (Bottle)</span></div></div><div class="item-price">2.400₺</div></div>
+
+      <div class="subgroup">Beylerbeyi Göbek</div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Rakı <span class="en">/ A Glass of Raki</span></div></div><div class="item-price">400₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">35 Cl Rakı <span class="en">/ 35 cl Raki (Bottle)</span></div></div><div class="item-price">1.600₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">50 Cl Rakı <span class="en">/ 50 cl Raki (Bottle)</span></div></div><div class="item-price">1.900₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">70 Cl Rakı <span class="en">/ 70 cl Raki (Bottle)</span></div></div><div class="item-price">2.500₺</div></div>
+    </div>
+  </section>
+
+  <!-- VOTKA -->
+  <section class="section" id="votka">
+    <div class="section-head"><span class="num">08</span><h2>Votka</h2><span class="en">Vodka</span></div>
+    <div class="divider"></div>
+    <div class="items">
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Votka <span class="en">/ A Glass of Vodka</span></div><div class="item-desc">Absolut</div></div><div class="item-price">550₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Votka <span class="en">/ A Glass of Vodka</span></div><div class="item-desc">Smirnoff</div></div><div class="item-price">490₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Votka <span class="en">/ A Glass of Vodka</span></div><div class="item-desc">Finlandia</div></div><div class="item-price">520₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Votka <span class="en">/ A Glass of Vodka</span></div><div class="item-desc">Russian Standard</div></div><div class="item-price">520₺</div></div>
+    </div>
+  </section>
+
+  <!-- GIN -->
+  <section class="section" id="gin">
+    <div class="section-head"><span class="num">09</span><h2>Gin</h2><span class="en">Gin</span></div>
+    <div class="divider"></div>
+    <div class="items">
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Gin <span class="en">/ A Glass of Gin</span></div><div class="item-desc">Gordon's Gin</div></div><div class="item-price">520₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Gin <span class="en">/ A Glass of Gin</span></div><div class="item-desc">Beefeater Gin</div></div><div class="item-price">550₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Gin <span class="en">/ A Glass of Gin</span></div><div class="item-desc">Hendricks Gin</div></div><div class="item-price">690₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Gin <span class="en">/ A Glass of Gin</span></div><div class="item-desc">Tanqueray Gin</div></div><div class="item-price">590₺</div></div>
+    </div>
+  </section>
+
+  <!-- VISKILER -->
+  <section class="section" id="viskiler">
+    <div class="section-head"><span class="num">10</span><h2>Viskiler</h2><span class="en">Whiskies</span></div>
+    <div class="divider"></div>
+    <div class="items">
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Viski <span class="en">/ A Glass of Whisky</span></div><div class="item-desc">Jack Daniel's</div></div><div class="item-price">590₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Viski <span class="en">/ A Glass of Whisky</span></div><div class="item-desc">Chivas Regal</div></div><div class="item-price">620₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Viski <span class="en">/ A Glass of Whisky</span></div><div class="item-desc">Black Label</div></div><div class="item-price">650₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Viski <span class="en">/ A Glass of Whisky</span></div><div class="item-desc">Ballantine's</div></div><div class="item-price">550₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Viski <span class="en">/ A Glass of Whisky</span></div><div class="item-desc">Aberlour</div></div><div class="item-price">790₺</div></div>
+    </div>
+  </section>
+
+  <!-- KOKTEYLLER -->
+  <section class="section" id="kokteyller">
+    <div class="section-head"><span class="num">11</span><h2>Kokteyller</h2><span class="en">Cocktails</span></div>
+    <div class="divider"></div>
+    <div class="items">
+      <div class="item"><div class="item-main"><div class="item-name">Lynchburg</div></div><div class="item-price">690₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Cuba Libre</div></div><div class="item-price">590₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">White Russian</div></div><div class="item-price">640₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Black Russian</div></div><div class="item-price">640₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Long Island</div></div><div class="item-price">790₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Piña Colada</div></div><div class="item-price">650₺</div></div>
+    </div>
+  </section>
+
+  <!-- SARAPLAR -->
+  <section class="section" id="saraplar">
+    <div class="section-head"><span class="num">12</span><h2>Şaraplar</h2><span class="en">Wines</span></div>
+    <div class="divider"></div>
+    <div class="items">
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Beyaz Şarap <span class="en">/ A Glass of White Wine</span></div></div><div class="item-price">350₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Kırmızı Şarap <span class="en">/ A Glass of Red Wine</span></div></div><div class="item-price">350₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Roze Şarap <span class="en">/ A Glass of Rose Wine</span></div></div><div class="item-price">350₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Kadeh Blush Şarap <span class="en">/ A Glass of Blush Wine</span></div></div><div class="item-price">350₺</div></div>
+    </div>
+  </section>
+
+  <!-- BIRALAR -->
+  <section class="section" id="biralar">
+    <div class="section-head"><span class="num">13</span><h2>Biralar</h2><span class="en">Beer</span></div>
+    <div class="divider"></div>
+    <div class="items">
+      <div class="item"><div class="item-main"><div class="item-name">Tuborg</div></div><div class="item-price">200₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Efes Malt</div></div><div class="item-price">200₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Carlsberg</div></div><div class="item-price">240₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Miller</div></div><div class="item-price">240₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Bomonti</div></div><div class="item-price">240₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Heineken</div></div><div class="item-price">240₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Corona</div></div><div class="item-price">250₺</div></div>
+    </div>
+  </section>
+
+  <!-- ICECEKLER -->
+  <section class="section" id="icecekler">
+    <div class="section-head"><span class="num">14</span><h2>Soğuk &amp; Sıcak İçecekler</h2><span class="en">Cold &amp; Hot Beverages</span></div>
+    <div class="divider"></div>
+    <div class="items">
+      <div class="item"><div class="item-main"><div class="item-name">Demleme Çay <span class="en">/ Turkish Black Tea</span></div></div><div class="item-price">40₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Filtre Kahve <span class="en">/ Filter Coffee</span></div></div><div class="item-price">150₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Espresso</div></div><div class="item-price">120₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Macchiato</div></div><div class="item-price">120₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Americano</div></div><div class="item-price">150₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Caffè Latte</div></div><div class="item-price">180₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Cappuccino</div></div><div class="item-price">180₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Türk Kahvesi <span class="en">/ Turkish Coffee</span></div></div><div class="item-price">100₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Bitki Çayları <span class="en">/ Herbal Teas</span></div></div><div class="item-price">80₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Frappe</div></div><div class="item-price">180₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Ice Tea</div></div><div class="item-price">120₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Coca Cola</div></div><div class="item-price">120₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Fanta</div></div><div class="item-price">120₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Sprite</div></div><div class="item-price">120₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Ayran <span class="en">/ Traditional Yogurt Drink</span></div></div><div class="item-price">120₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Churchill</div></div><div class="item-price">100₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Su <span class="en">/ Water</span></div></div><div class="item-price">50₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Soda <span class="en">/ Mineral Water</span></div></div><div class="item-price">80₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Red Bull <span class="en">/ Energy Drink</span></div></div><div class="item-price">200₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Portakal Suyu (Taze) <span class="en">/ Fresh Orange Juice</span></div></div><div class="item-price">200₺</div></div>
+      <div class="item"><div class="item-main"><div class="item-name">Limonata (Ev Yapımı) <span class="en">/ Homemade Lemonade</span></div></div><div class="item-price">200₺</div></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fmark">Şuh Bitez</div>
+    <p>BODRUM &middot; TÜRKİYE</p>
+  </footer>
+
+<script>
+  const links = document.querySelectorAll('#catnav a');
+  const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href')));
+
+  function setActive(){
+    let idx = 0;
+    const y = window.scrollY + 90;
+    sections.forEach((sec, i) => { if (sec && sec.offsetTop <= y) idx = i; });
+    links.forEach((a,i) => a.classList.toggle('active', i === idx));
+    const active = links[idx];
+    if (active) active.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+  }
+  window.addEventListener('scroll', setActive, {passive:true});
+  setActive();
+</script>
+</body>
+</html>
